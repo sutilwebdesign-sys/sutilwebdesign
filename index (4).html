@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f4f2ed">
+  <title>Sutil Design Digital — Sites profissionais para negócios</title>
+  <meta name="description" content="Design, desenvolvimento e estratégia para criar sites profissionais, personalizados e modernos para empresas, profissionais e negócios.">
+  <meta property="og:title" content="Sutil Design Digital — Sites profissionais para negócios">
+  <meta property="og:description" content="Design digital pensado nos detalhes. Websites personalizados, responsivos e estratégicos.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://seudominio.com.br/">
+  <link rel="canonical" href="https://seudominio.com.br/">
+  <style>
+    :root{
+      --paper:#f4f2ed; --ink:#171715; --muted:#696863; --line:#d9d6cf;
+      --accent:#8b6f4e; --accent-dark:#6e573e; --white:#fffefa; --soft:#ebe8e0;
+      --max:1240px; --radius:18px; --ease:cubic-bezier(.2,.75,.25,1);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit}
+    button,a{outline-offset:4px}
+    :focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+    .wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
+    .eyebrow{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:700}
+    .serif{font-family:Georgia,"Times New Roman",serif;font-weight:400}
+    .section{padding:120px 0}
+    .section-head{display:grid;grid-template-columns:.7fr 1.3fr;gap:40px;align-items:end;margin-bottom:56px}
+    .section-head h2{font-size:clamp(2.3rem,5vw,5rem);line-height:.98;letter-spacing:-.055em;margin:0}
+    .section-head p{max-width:560px;color:var(--muted);font-size:1.05rem;margin:0 0 4px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--ink);background:var(--ink);color:var(--white);padding:13px 18px;border-radius:999px;font-weight:700;transition:transform .25s var(--ease),background .25s,border-color .25s}
+    .btn:hover{transform:translateY(-2px);background:#2a2926}
+    .btn.secondary{background:transparent;color:var(--ink)}
+    .btn.secondary:hover{background:var(--white)}
+    .btn.accent{background:var(--accent);border-color:var(--accent);color:#fff}
+    .btn.accent:hover{background:var(--accent-dark);border-color:var(--accent-dark)}
+    .site-header{position:fixed;z-index:50;top:0;left:0;right:0;padding:18px 0;transition:padding .3s,background .3s,box-shadow .3s}
+    .site-header.scrolled{padding:10px 0;background:rgba(244,242,237,.92);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:30px}
+    .brand{font-weight:850;letter-spacing:-.045em;font-size:1.08rem;display:flex;align-items:center;gap:9px}
+    .brand-mark{width:23px;height:23px;border:1.5px solid var(--ink);border-radius:50%;position:relative}
+    .brand-mark:after{content:"";position:absolute;width:7px;height:7px;background:var(--accent);border-radius:50%;left:7px;top:7px}
+    .nav-links{display:flex;gap:25px;font-size:.9rem;color:#4e4d48}
+    .nav-links a{transition:color .2s}.nav-links a:hover{color:var(--ink)}
+    .menu{display:none;background:none;border:0;padding:8px}
+    .hero{padding:170px 0 90px;min-height:92vh;display:grid;align-items:center}
+    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:70px;align-items:center}
+    .hero h1{font-size:clamp(3.4rem,7vw,7.6rem);line-height:.91;letter-spacing:-.075em;margin:18px 0 28px;max-width:850px}
+    .hero h1 em{font-style:normal;color:var(--accent)}
+    .hero-copy{max-width:620px;color:var(--muted);font-size:1.14rem}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+    .signature{margin-top:62px;border-top:1px solid var(--line);padding-top:18px;font-size:.9rem;display:flex;justify-content:space-between;gap:20px;color:var(--muted)}
+    .signature strong{color:var(--ink)}
+    .hero-art{min-height:540px;position:relative}
+    .browser{position:absolute;inset:20px 0 20px 25px;background:var(--white);border:1px solid #c9c6bd;box-shadow:0 25px 70px rgba(30,28,23,.10);transform:rotate(2.2deg);overflow:hidden}
+    .browser-top{height:42px;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 15px;gap:7px}
+    .dot{width:7px;height:7px;border-radius:50%;border:1px solid #aaa79f}
+    .mock-nav{display:flex;justify-content:space-between;padding:24px 28px;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em}
+    .mock-body{padding:25px 42px}
+    .mock-kicker{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:800}
+    .mock-title{font-family:Georgia,serif;font-size:clamp(2.6rem,5vw,5rem);line-height:.92;margin:16px 0 25px;letter-spacing:-.05em}
+    .mock-line{height:7px;background:#dedbd3;margin:9px 0;width:74%}.mock-line.short{width:43%}
+    .mock-image{height:170px;background:linear-gradient(120deg,#25231f 0%,#7d715f 45%,#e2ddd2 45%,#f6f2ea 100%);margin-top:30px;position:relative}
+    .mock-image:after{content:"S";position:absolute;right:30px;bottom:-20px;font:normal 9rem Georgia;color:rgba(255,255,255,.7)}
+    .art-note{position:absolute;right:-5px;bottom:20px;background:var(--ink);color:var(--white);padding:17px 18px;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 15px 35px rgba(0,0,0,.12)}
+    .intro-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:25px 0}
+    .intro-strip .wrap{display:flex;justify-content:space-between;gap:30px;align-items:center}
+    .intro-strip p{margin:0;color:var(--muted);font-size:.92rem}.intro-strip strong{font-family:Georgia,serif;font-size:1.25rem}
+    .services{background:var(--ink);color:var(--white)}
+    .services .section-head p,.services .eyebrow{color:#aaa9a2}
+    .service-list{border-top:1px solid #3b3a35}
+    .service{display:grid;grid-template-columns:80px 1fr 1fr;gap:30px;padding:32px 0;border-bottom:1px solid #3b3a35;align-items:start}
+    .service-no{color:#8e8c84;font-size:.78rem;letter-spacing:.12em}
+    .service h3{font-size:clamp(1.5rem,3vw,2.3rem);margin:0;letter-spacing:-.04em}
+    .service p{color:#aaa9a2;margin:2px 0 0;max-width:480px}
+    .plans{background:var(--white)}
+    .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch}
+    .plan{border:1px solid var(--line);padding:30px;display:flex;flex-direction:column;min-height:620px;position:relative;background:var(--white)}
+    .plan.featured{border:1.5px solid var(--accent)}
+    .badge{position:absolute;top:0;right:0;background:var(--accent);color:#fff;padding:7px 12px;font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800}
+    .plan h3{font-size:1rem;letter-spacing:.08em;text-transform:uppercase;margin:0 0 25px}
+    .price{font-size:3.5rem;letter-spacing:-.07em;line-height:1;margin:0 0 10px}.price small{font-size:.95rem;letter-spacing:0;color:var(--muted);font-weight:500}
+    .plan-desc{color:var(--muted);min-height:75px}
+    .features{list-style:none;padding:18px 0 30px;margin:0;border-top:1px solid var(--line);flex:1}
+    .features li{padding:7px 0;font-size:.91rem;display:flex;gap:9px}.features li:before{content:"✓";color:var(--accent);font-weight:800}
+    .plan .btn{width:100%}
+    .comparison{margin-top:24px;border:1px solid var(--line);background:var(--paper);overflow:hidden}
+    .comparison-head,.comparison-row{display:grid;grid-template-columns:1.5fr repeat(3,1fr)}
+    .comparison-head{background:var(--ink);color:#fff;padding:16px 20px;font-size:.76rem;text-transform:uppercase;letter-spacing:.1em}
+    .comparison-row{border-top:1px solid var(--line);padding:15px 20px;font-size:.88rem}
+    .comparison-row > *:not(:first-child),.comparison-head > *:not(:first-child){text-align:center}
+    .yes{color:var(--accent);font-weight:800}.dash{color:#aaa}
+    .fit{padding-top:95px}.fit-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .fit-item{padding:30px;border-right:1px solid var(--line)}.fit-item:last-child{border-right:0}
+    .fit-item small{color:var(--muted);text-transform:uppercase;letter-spacing:.12em}.fit-item h3{font:400 2rem Georgia,serif;margin:14px 0}.fit-item a{font-weight:750;border-bottom:1px solid var(--ink);padding-bottom:3px}
+    .process{background:#e8e5dd}.process-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}
+    .process-intro h2{font-size:clamp(2.6rem,5vw,5rem);line-height:.95;letter-spacing:-.06em;margin:12px 0}
+    .process-list{counter-reset:step}.step{display:grid;grid-template-columns:70px 1fr;gap:25px;padding:28px 0;border-top:1px solid #c8c4bb}.step:last-child{border-bottom:1px solid #c8c4bb}.step-no{font-family:Georgia,serif;font-size:1.4rem;color:var(--accent)}.step h3{margin:0;font-size:1.35rem}.step p{margin:7px 0 0;color:var(--muted)}
+    .projects{background:var(--white)}.project-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:16px}.project{border:1px solid var(--line);overflow:hidden;background:var(--paper)}.project.large{grid-row:span 2}.project-visual{height:360px;position:relative;overflow:hidden}.project.large .project-visual{height:600px}
+    .visual-rest{background:linear-gradient(135deg,#c8b49d 0%,#efe7da 46%,#6c4e39 46%,#31271f 100%)}.visual-office{background:linear-gradient(110deg,#e7e4dd 0 45%,#171715 45% 72%,#a28d74 72%)}.visual-tech{background:linear-gradient(135deg,#161715,#50534c 55%,#d9d5c8 55%)}.visual-pro{background:linear-gradient(145deg,#f1eee6,#c2baa9 55%,#5d5a52 55%)}
+    .visual-word{position:absolute;left:28px;bottom:24px;font:400 5rem Georgia,serif;color:rgba(255,255,255,.78);letter-spacing:-.08em}.project-meta{padding:18px 20px;display:flex;justify-content:space-between;gap:20px}.project-meta strong{font-size:1rem}.project-meta span{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+    .why{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}.why h2{font:400 clamp(3rem,6vw,6.4rem) Georgia,serif;line-height:.9;letter-spacing:-.065em;margin:15px 0}.why-copy{padding-top:25px}.why-copy p{font-size:1.1rem;color:var(--muted);max-width:570px}.principles{margin-top:40px;border-top:1px solid var(--line)}.principle{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}.principle span{color:var(--muted)}
+    .tech{background:var(--ink);color:#fff}.tech-inner{display:flex;justify-content:space-between;gap:60px;align-items:center}.tech h2{font:400 clamp(2.6rem,5vw,5.2rem) Georgia,serif;line-height:.95;letter-spacing:-.06em;margin:14px 0}.tech p{max-width:570px;color:#aaa9a2}.tech-note{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:#77766f}
+    .faq{display:grid;grid-template-columns:.7fr 1.3fr;gap:80px}.faq h2{font-size:clamp(2.5rem,5vw,5rem);line-height:.95;letter-spacing:-.06em;margin:12px 0}.faq-list{border-top:1px solid var(--line)}details{border-bottom:1px solid var(--line)}summary{cursor:pointer;list-style:none;padding:22px 0;font-weight:750;display:flex;justify-content:space-between;gap:20px}summary::-webkit-details-marker{display:none}summary:after{content:"+";font-weight:400;color:var(--accent)}details[open] summary:after{content:"–"}details p{margin:0 0 23px;color:var(--muted);max-width:700px}
+    .cta{background:#d9d0c1}.cta-inner{display:flex;justify-content:space-between;gap:50px;align-items:end}.cta h2{font:400 clamp(3rem,7vw,7rem) Georgia,serif;line-height:.9;letter-spacing:-.07em;margin:15px 0 0;max-width:850px}.cta p{max-width:500px;color:#57534b}
+    .contact{background:var(--white)}.contact-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:90px}.contact h2{font-size:clamp(2.5rem,5vw,5rem);line-height:.95;letter-spacing:-.06em;margin:15px 0}.contact-info{color:var(--muted)}.contact-form{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:750}.field input,.field select,.field textarea{width:100%;border:0;border-bottom:1px solid #bbb8af;background:transparent;padding:12px 0;border-radius:0;color:var(--ink);outline:none}.field textarea{min-height:120px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ink)}.form-actions{grid-column:1/-1;display:flex;justify-content:space-between;gap:20px;align-items:center;margin-top:10px}.form-note{font-size:.75rem;color:var(--muted)}.success{display:none;padding:16px;border:1px solid #b9b2a5;background:var(--paper);color:#3f3b35}.success.show{display:block}
+    footer{background:var(--ink);color:#fff;padding:55px 0 30px}.footer-top{display:flex;justify-content:space-between;gap:40px;padding-bottom:55px;border-bottom:1px solid #3b3a35}.footer-links{display:flex;gap:20px;flex-wrap:wrap;color:#aaa9a2;font-size:.9rem}.footer-bottom{display:flex;justify-content:space-between;gap:20px;padding-top:20px;color:#77766f;font-size:.76rem}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .75s var(--ease),transform .75s var(--ease)}.reveal.in{opacity:1;transform:none}
+    .whatsapp{position:fixed;right:22px;bottom:22px;z-index:40;background:var(--ink);color:#fff;border:1px solid #45433e;border-radius:999px;padding:11px 15px;font-size:.78rem;font-weight:750;box-shadow:0 12px 35px rgba(0,0,0,.14);transition:transform .25s}.whatsapp:hover{transform:translateY(-2px)}
+    @media (max-width:900px){
+      .nav-links{display:none;position:absolute;top:66px;left:20px;right:20px;background:var(--white);border:1px solid var(--line);padding:16px;flex-direction:column;gap:0;box-shadow:0 18px 50px rgba(0,0,0,.1)}.nav-links.open{display:flex}.nav-links a{padding:12px 6px;border-bottom:1px solid var(--line)}.nav-links a:last-child{border-bottom:0}.menu{display:block}.nav>.btn{display:none}
+      .hero-grid,.process-grid,.why,.faq,.contact-grid{grid-template-columns:1fr;gap:45px}.hero{padding-top:130px}.hero-art{min-height:420px}.browser{inset:10px 0 10px 0}.section-head{grid-template-columns:1fr;gap:18px}.plan-grid,.fit-grid{grid-template-columns:1fr}.fit-item{border-right:0;border-bottom:1px solid var(--line)}.fit-item:last-child{border-bottom:0}.comparison{overflow-x:auto}.comparison-head,.comparison-row{min-width:700px}.project-grid{grid-template-columns:1fr}.project.large{grid-row:auto}.project.large .project-visual{height:420px}.tech-inner,.cta-inner,.footer-top,.footer-bottom{flex-direction:column;align-items:flex-start}.service{grid-template-columns:50px 1fr}.service p{grid-column:2}.contact-form{grid-template-columns:1fr}.field.full,.form-actions{grid-column:1}.signature{flex-direction:column}.whatsapp{right:14px;bottom:14px}
+    }
+    @media (max-width:600px){
+      .wrap{width:min(calc(100% - 28px),var(--max))}.section{padding:82px 0}.hero{min-height:auto;padding-bottom:65px}.hero h1{font-size:clamp(3.15rem,16vw,5rem)}.hero-art{min-height:330px}.mock-body{padding:18px 25px}.mock-image{height:120px}.mock-title{font-size:2.7rem}.art-note{right:0;bottom:0}.plan{min-height:auto}.comparison{font-size:.8rem}.project-visual{height:280px}.visual-word{font-size:4rem}.cta h2{font-size:3.5rem}
+    }
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn,.whatsapp{transition:none}}
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ProfessionalService","name":"Sutil Design Digital","description":"Design, desenvolvimento e estratégia para websites profissionais.","url":"https://seudominio.com.br/","areaServed":"BR","serviceType":["Web design","Desenvolvimento de websites","Landing pages"]}
+  </script>
+</head>
+<body>
+<header class="site-header" id="header">
+  <div class="wrap nav">
+    <a class="brand" href="#inicio" aria-label="Sutil Design Digital — início"><span class="brand-mark" aria-hidden="true"></span>Sutil Design Digital</a>
+    <nav class="nav-links" id="navLinks" aria-label="Navegação principal">
+      <a href="#inicio">Início</a><a href="#servicos">Serviços</a><a href="#planos">Planos</a><a href="#processo">Processo</a><a href="#sobre">Sobre</a><a href="#faq">FAQ</a><a href="#contato">Contato</a>
+    </nav>
+    <a class="btn accent" href="#contato">Solicitar orçamento</a>
+    <button class="menu" id="menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <div class="eyebrow">Sutil Design Digital · Estúdio digital</div>
+      <h1>Sites que fazem sua empresa parecer <em>tão profissional</em> quanto ela é.</h1>
+      <p class="hero-copy">Design, desenvolvimento e estratégia para criar uma presença digital que realmente represente o seu negócio — com clareza, personalidade e atenção aos detalhes.</p>
+      <div class="hero-actions"><a class="btn" href="#planos">Conhecer os planos</a><a class="btn secondary" href="#contato">Solicitar orçamento</a></div>
+      <div class="signature"><span>Digital, mas nunca genérico.</span><strong>Design digital pensado nos detalhes.</strong></div>
+    </div>
+    <div class="hero-art reveal" aria-label="Composição visual demonstrativa de uma interface web">
+      <div class="browser">
+        <div class="browser-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="mock-nav"><strong>SUTIL</strong><span>estúdio / 2026</span></div>
+        <div class="mock-body">
+          <div class="mock-kicker">Exploração de design</div>
+          <div class="mock-title">A forma também comunica.</div>
+          <div class="mock-line"></div><div class="mock-line short"></div>
+          <div class="mock-image"></div>
+        </div>
+      </div>
+      <div class="art-note">Design · Código · Estratégia</div>
+    </div>
+  </div>
+</section>
+
+<div class="intro-strip"><div class="wrap"><strong>Presença digital com intenção.</strong><p>Do primeiro enquadramento ao último detalhe, cada decisão tem um motivo.</p></div></div>
+
+<section class="section services" id="servicos">
+  <div class="wrap">
+    <div class="section-head reveal"><div><div class="eyebrow">01 · O que fazemos</div><h2>Um site que <span class="serif">faz sentido</span> para o seu negócio.</h2></div><p>Projetamos experiências digitais sob medida para empresas, profissionais e negócios que quer comunicar com mais clareza e presença.</p></div>
+    <div class="service-list">
+      <article class="service reveal"><div class="service-no">01</div><h3>Websites institucionais</h3><p>Sites profissionais para apresentar sua marca, serviços, diferenciais e informações essenciais com estrutura clara.</p></article>
+      <article class="service reveal"><div class="service-no">02</div><h3>Landing pages</h3><p>Páginas focadas em campanhas, produtos, serviços e conversão, sem perder a personalidade da marca.</p></article>
+      <article class="service reveal"><div class="service-no">03</div><h3>Sites comerciais</h3><p>Experiências digitais mais robustas para empresas que precisa organizar conteúdo, prova de valor e caminhos de contato.</p></article>
+      <article class="service reveal"><div class="service-no">04</div><h3>Experiências personalizadas</h3><p>Estruturas e funcionalidades específicas para necessidades que pedem algo além de um site convencional.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section plans" id="planos">
+  <div class="wrap">
+    <div class="section-head reveal"><div><div class="eyebrow">02 · Planos</div><h2>Escolha a estrutura que <span class="serif">acompanha</span> o seu momento.</h2></div><p>Valores claros para começar. Se o seu projeto fugir dessas estruturas, também avaliamos soluções personalizadas.</p></div>
+    <div class="plan-grid">
+      <article class="plan reveal"><h3>Essencial</h3><div class="price">R$ 347</div><p class="plan-desc">Para negócios que precisa começar com uma presença digital profissional.</p><ul class="features"><li>Até 3 páginas</li><li>Design personalizado</li><li>Site responsivo</li><li>Animações básicas</li><li>Formulário de contato</li><li>Integração com WhatsApp</li><li>SEO básico</li><li>Otimização básica</li><li>1 rodada de revisões</li></ul><a class="btn secondary" href="#contato" data-plan="Essencial">Escolher Essencial</a></article>
+      <article class="plan featured reveal"><span class="badge">Mais escolhido</span><h3>Profissional</h3><div class="price">R$ 797</div><p class="plan-desc">Para empresas que quer uma presença digital mais completa.</p><ul class="features"><li>Até 6 páginas</li><li>Design personalizado</li><li>Animações avançadas</li><li>WhatsApp</li><li>Google Maps</li><li>SEO</li><li>Portfólio</li><li>Depoimentos</li><li>FAQ interativo</li><li>Integração com redes sociais</li><li>Analytics</li><li>Otimização de velocidade</li><li>3 rodadas de revisões</li></ul><a class="btn accent" href="#contato" data-plan="Profissional">Escolher Profissional</a></article>
+      <article class="plan reveal"><h3>Premium</h3><div class="price">R$ 1.097</div><p class="plan-desc">Para projetos que precisa de uma experiência digital mais completa e personalizada.</p><ul class="features"><li>Até 10 páginas</li><li>Direção de arte personalizada</li><li>Experiências interativas avançadas</li><li>Animações sofisticadas</li><li>SEO avançado</li><li>Blog</li><li>Funcionalidades personalizadas</li><li>Integrações</li><li>Otimização avançada</li><li>Analytics</li><li>5 rodadas de revisões</li></ul><a class="btn secondary" href="#contato" data-plan="Premium">Escolher Premium</a></article>
+    </div>
+
+    <div class="comparison reveal" aria-label="Comparação dos planos">
+      <div class="comparison-head"><span>Recurso</span><span>Essencial</span><span>Profissional</span><span>Premium</span></div>
+      <div class="comparison-row"><span>Páginas</span><span>3</span><span>6</span><span>10</span></div>
+      <div class="comparison-row"><span>Design personalizado</span><span class="yes">✓</span><span class="yes">✓</span><span class="yes">✓</span></div>
+      <div class="comparison-row"><span>Responsividade</span><span class="yes">✓</span><span class="yes">✓</span><span class="yes">✓</span></div>
+      <div class="comparison-row"><span>Animações</span><span>Básicas</span><span>Avançadas</span><span>Premium</span></div>
+      <div class="comparison-row"><span>WhatsApp</span><span class="yes">✓</span><span class="yes">✓</span><span class="yes">✓</span></div>
+      <div class="comparison-row"><span>SEO</span><span>Básico</span><span>Completo</span><span>Avançado</span></div>
+      <div class="comparison-row"><span>Portfólio</span><span class="dash">—</span><span class="yes">✓</span><span class="yes">✓</span></div>
+      <div class="comparison-row"><span>FAQ</span><span class="dash">—</span><span class="yes">✓</span><span class="yes">✓</span></div>
+      <div class="comparison-row"><span>Blog</span><span class="dash">—</span><span class="dash">—</span><span class="yes">✓</span></div>
+      <div class="comparison-row"><span class="dash">—</span><span class="dash">—</span><span class="yes">✓</span></div>
+      <div class="comparison-row"><span>Analytics</span><span class="dash">—</span><span class="yes">✓</span><span class="yes">✓</span></div>
+      <div class="comparison-row"><span>Funcionalidades personalizadas</span><span class="dash">—</span><span class="dash">—</span><span class="yes">✓</span></div>
+      <div class="comparison-row"><span>Revisões</span><span>1</span><span>3</span><span>5</span></div>
+    </div>
+
+    <div class="fit">
+      <div class="eyebrow">Qual plano é para mim?</div>
+      <div class="fit-grid">
+        <div class="fit-item"><small>Estou começando agora</small><h3>Essencial</h3><a href="#contato" data-plan="Essencial">Ver este caminho →</a></div>
+        <div class="fit-item"><small>Já preciso de uma presença completa</small><h3>Profissional</h3><a href="#contato" data-plan="Profissional">Ver este caminho →</a></div>
+        <div class="fit-item"><small>Quero algo mais personalizado</small><h3>Premium</h3><a href="#contato" data-plan="Premium">Ver este caminho →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section process" id="processo">
+  <div class="wrap process-grid">
+    <div class="process-intro reveal"><div class="eyebrow">03 · Processo</div><h2>Clareza antes de <span class="serif">código.</span></h2><p>Um processo enxuto para reduzir ruído e concentrar energia nas decisões que realmente mudam o resultado.</p></div>
+    <div class="process-list">
+      <div class="step reveal"><div class="step-no">01</div><div><h3>Conversa</h3><p>Entendemos o negócio, objetivo e necessidades.</p></div></div>
+      <div class="step reveal"><div class="step-no">02</div><div><h3>Direção</h3><p>Definimos estrutura, conteúdo e identidade visual.</p></div></div>
+      <div class="step reveal"><div class="step-no">03</div><div><h3>Desenvolvimento</h3><p>Transformamos o conceito em uma experiência digital funcional.</p></div></div>
+      <div class="step reveal"><div class="step-no">04</div><div><h3>Refinamento</h3><p>Revisamos detalhes, responsividade, interações e acabamento.</p></div></div>
+      <div class="step reveal"><div class="step-no">05</div><div><h3>Entrega</h3><p>O projeto é preparado para publicação.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section projects">
+  <div class="wrap">
+    <div class="section-head reveal"><div><div class="eyebrow">04 · Explorações de design</div><h2>Projetos <span class="serif">conceituais.</span></h2></div><p>Exemplos demonstrativos de direção visual para diferentes segmentos. Não representam clientes reais.</p></div>
+    <div class="project-grid">
+      <article class="project large reveal"><div class="project-visual visual-rest"><div class="visual-word">Mesa</div></div><div class="project-meta"><strong>Restaurante · Direção editorial</strong><span>Exploração 01</span></div></article>
+      <article class="project reveal"><div class="project-visual visual-office"><div class="visual-word">Ateliê</div></div><div class="project-meta"><strong>Escritório · Identidade sóbria</strong><span>Exploração 02</span></div></article>
+      <article class="project reveal"><div class="project-visual visual-tech"><div class="visual-word">Nexo</div></div><div class="project-meta"><strong>Tecnologia · Produto digital</strong><span>Exploração 03</span></div></article>
+      <article class="project reveal"><div class="project-visual visual-pro"><div class="visual-word">Clara</div></div><div class="project-meta"><strong>Profissional · Marca pessoal</strong><span>Exploração 04</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sobre">
+  <div class="wrap why">
+    <div class="reveal"><div class="eyebrow">05 · Por que a Sutil</div><h2>Cada negócio merece um site com <span class="serif">personalidade.</span></h2></div>
+    <div class="why-copy reveal"><p>O objetivo não é encaixar empresas em templates. É encontrar a estrutura, a linguagem e o nível de detalhe que fazem sentido para cada projeto.</p><p>Somos um estúdio digital pequeno por escolha: próximos do projeto, cuidadosos nas decisões e interessados no que acontece depois do lançamento.</p>
+      <div class="principles"><div class="principle"><strong>Precisão</strong><span>menos ruído, mais intenção</span></div><div class="principle"><strong>Personalidade</strong><span>cada projeto tem sua própria voz</span></div><div class="principle"><strong>Proximidade</strong><span>conversa direta e processo claro</span></div><div class="principle"><strong>Resultado</strong><span>design bonito que também funciona</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section tech">
+  <div class="wrap tech-inner">
+    <div class="reveal"><div class="eyebrow">Tecnologia por trás do processo</div><h2>IA é ferramenta.<br><span class="serif">Design é o resultado.</span></h2></div>
+    <div class="reveal"><p>Utilizamos ferramentas modernas e auxílio de inteligência artificial em etapas do desenvolvimento para acelerar processos, explorar possibilidades e dedicar mais atenção ao que realmente importa: o resultado final.</p><div class="tech-note">Tecnologia aplicada com discrição.</div></div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap faq">
+    <div class="reveal"><div class="eyebrow">06 · FAQ</div><h2>Antes de começar, algumas respostas.</h2></div>
+    <div class="faq-list reveal">
+      <details><summary>O domínio está incluso?</summary><p>O domínio não está incluído automaticamente nos valores apresentados. A configuração e contratação pode ser orientadas durante o projeto.</p></details>
+      <details><summary>Você fazem alterações depois da entrega?</summary><p>Sim. Cada plano possui uma quantidade definida de rodadas de revisões durante o desenvolvimento. Alterações posteriores pode ser avaliadas separadamente.</p></details>
+      <details><summary>Posso pedir funcionalidades específicas?</summary><p>Sim. Dependendo da complexidade, a necessidade pode ser avaliada como adicional ou direcionada para um projeto personalizado.</p></details>
+      <details><summary>O site funciona no celular?</summary><p>Sim. Os projetos são construídos com abordagem responsiva para diferentes tamanhos de tela.</p></details>
+      <details><summary>Você fazem manutenção?</summary><p>Podeos avaliar manutenção mensal conforme a necessidade do projeto e o tipo de atualização desejada.</p></details>
+      <details><summary>Posso trocar de plano?</summary><p>Sim. A estrutura pode ser revista durante a conversa inicial, antes de fechar o escopo do projeto.</p></details>
+      <details><summary>Como funciona o pagamento?</summary><p>As condições de pagamento devem ser combinadas no orçamento. Esta página não fixa uma política de pagamento que ainda não foi definida.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="section cta">
+  <div class="wrap cta-inner">
+    <div class="reveal"><div class="eyebrow">07 · Próximo passo</div><h2>Seu próximo site começa com uma boa conversa.</h2></div>
+    <div class="reveal"><p>Conte um pouco sobre o seu negócio e descubra qual estrutura faz mais sentido para o seu projeto.</p><div class="hero-actions"><a class="btn" href="#contato">Solicitar orçamento</a><a class="btn secondary" href="#planos">Ver planos</a></div></div>
+  </div>
+</section>
+
+<section class="section contact" id="contato">
+  <div class="wrap contact-grid">
+    <div class="reveal"><div class="eyebrow">08 · Contato</div><h2>Vamos dar forma ao projeto.</h2><p class="contact-info">Preencha o formulário com o que você já sabe. Não precisa ter tudo definido para começar a conversa.</p><p class="contact-info"><strong>WhatsApp:</strong> configure o número no arquivo antes da publicação.<br><strong>E-mail:</strong> configure o endereço comercial antes da publicação.</p></div>
+    <form class="contact-form reveal" id="contactForm">
+      <div class="field"><label for="name">Nome</label><input id="name" name="name" required autocomplete="name"></div>
+      <div class="field"><label for="company">Empresa</label><input id="company" name="company" autocomplete="organization"></div>
+      <div class="field"><label for="phone">WhatsApp</label><input id="phone" name="phone" required inputmode="tel" autocomplete="tel"></div>
+      <div class="field"><label for="email">E-mail</label><input id="email" name="email" required type="email" autocomplete="email"></div>
+      <div class="field"><label for="project">Tipo de projeto</label><select id="project" name="project"><option>Website institucional</option><option>Landing page</option><option>Site comercial</option><option>Experiência personalizada</option></select></div>
+      <div class="field"><label for="plan">Plano de interesse</label><select id="plan" name="plan"><option>Ainda não sei</option><option>Essencial</option><option>Profissional</option><option>Premium</option><option>Projeto personalizado</option></select></div>
+      <div class="field full"><label for="message">Mensagem</label><textarea id="message" name="message" required placeholder="Conte brevemente sobre seu negócio e o que você precisa."></textarea></div>
+      <div class="form-actions"><span class="form-note">Os dados deste formulário não são enviados a um servidor nesta versão.</span><button class="btn" type="submit">Preparar solicitação</button></div>
+      <div class="success full" id="success" role="status">Solicitação validada. Para envio real, conecte este formulário a um endpoint, CRM ou serviço de formulários antes da publicação.</div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top"><div><a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true"></span>Sutil Design Digital</a><p style="color:#aaa9a2;max-width:360px">Design digital pensado nos detalhes.</p></div><div class="footer-links"><a href="#inicio">Início</a><a href="#servicos">Serviços</a><a href="#planos">Planos</a><a href="#processo">Processo</a><a href="#faq">FAQ</a><a href="#contato">Contato</a></div></div>
+    <div class="footer-bottom"><span>© 2026 Sutil Design Digital. Todos os direitos reservados.</span><span>Website profissional · Design · Desenvolvimento · Estratégia</span></div>
+  </div>
+</footer>
+
+<a class="whatsapp" id="whatsapp" href="#contato" aria-label="Conversar pelo WhatsApp">Conversar pelo WhatsApp</a>
+
+<script>
+(() => {
+  // CONFIGURE ANTES DA PUBLICAÇÃO:
+  const WHATSAPP_NUMBER = "5547996026987"; // Ex.: "5548999999999", somente números
+  const WHATSAPP_TEXT = "Olá! Conheci a Sutil Design Digital e gostaria de conversar sobre um site.";
+
+  const header = document.getElementById('header');
+  const menu = document.getElementById('menu');
+  const nav = document.getElementById('navLinks');
+  const whatsapp = document.getElementById('whatsapp');
+
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20), {passive:true});
+
+  menu.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menu.setAttribute('aria-expanded', open);
+    menu.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open'); menu.setAttribute('aria-expanded','false'); menu.setAttribute('aria-label','Abrir menu');
+  }));
+
+  if (WHATSAPP_NUMBER) {
+    whatsapp.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_TEXT)}`;
+    whatsapp.target = "_blank"; whatsapp.rel = "noopener";
+  } else {
+    whatsapp.title = "Configure WHATSAPP_NUMBER no código antes da publicação";
+  }
+
+  document.querySelectorAll('[data-plan]').forEach(link => link.addEventListener('click', () => {
+    const plan = link.dataset.plan;
+    const select = document.getElementById('plan');
+    if (select) select.value = plan;
+  }));
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('in'); observer.unobserve(entry.target); }});
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('success');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+
+    const data = new FormData(form);
+    const message = [
+      "Olá! Conheci a Sutil Design Digital e gostaria de conversar sobre um site.",
+      "",
+      "— DADOS DO PROJETO —",
+      `Nome: ${data.get('name') || '-'}`,
+      `Empresa: ${data.get('company') || '-'}`,
+      `WhatsApp: ${data.get('phone') || '-'}`,
+      `E-mail: ${data.get('email') || '-'}`,
+      `Tipo de projeto: ${data.get('project') || '-'}`,
+      `Plano de interesse: ${data.get('plan') || '-'}`,
+      "",
+      "— MENSAGEM —",
+      `${data.get('message') || '-'}`
+    ].join("\n");
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+    if (!WHATSAPP_NUMBER) {
+      success.textContent = "Configure o número do WhatsApp no código antes da publicação.";
+      success.classList.add('show');
+      return;
+    }
+
+    success.textContent = "Abrindo o WhatsApp com sua solicitação preenchida...";
+    success.classList.add('show');
+    window.open(url, "_blank", "noopener,noreferrer");
+  });
+})();
+</script>
+</body>
+</html>
